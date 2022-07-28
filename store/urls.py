@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import klodi
 
 from . import views
 
 urlpatterns = [
     path(r'^$', views.index, name='index'),
-    path('', klodi),
+    #path(r'^generic/$', views.generic, name='generic'),
+    #path(r'^elements/$', views.elements, name='elements'),
 ]
