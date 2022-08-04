@@ -11,5 +11,6 @@ urlpatterns = [
     path(r'^login/$', views.mylogin, name='mylogin'),
     path(r'^logout/$', views.mylogout, name='mylogout'),
     path(r'^register/$', views.myregister, name='myregister'),
+    path(r'^about/$', views.about, name='about'),
     path(r'^about/setting/$', views.about_setting, name='about_setting'),
 ]
