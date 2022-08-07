@@ -1,0 +1,23 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static '/css/owl.theme.default.min.css' %}">
+{% endblock css %}
+
+{% block content %}
+    {% include 'pages/home/carousel.html' %}
+    {% include 'pages/home/our-features.html' %}
+    {% include 'pages/home/latest-products.html' %}
+{% endblock content %}
+
+{% block js %}
+    <script>
+        $(function (event) {
+            $('.owl-carousel').owlCarousel({
+                items: 1,
+            })
+        });
+    </script>
+{% endblock js %}
