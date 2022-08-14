@@ -1,0 +1,81 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+    <section class="generic-banner">
+        <div class="container">
+            <div class="row align-items-center justify-content-center" style="min-height: 200px">
+                <div class="col-lg-10">
+                    <div class="generic-banner-content">
+                        <h2 class="text-white">Our products</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Categories</h2>
+                {% if categories %}
+                    <ul class="mt-3">
+                        {% for item in categories %}
+                            <li class="mt-2">
+                                <a href="{% url 'website-product-filter-page' id=item.id %}" class="text-black bold" style="font-size: 1.2rem;">
+                                    {{ item.title }}
+                                    <i class="ml-2 fa fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                {% else %}
+                    <div class="col-12 text-center">
+                        <div class="alert alert-info" role="alert">No Categories found!</div>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <h2>Products of category: {{ category.title }}</h2>
+
+                <div class="row">
+                    {% if products %}
+                        {% for item in products %}
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-unique-product">
+                                <img class="img-fluid" src="{{ MEDIA_URL }}{{ item.image }}" alt="">
+                                <div class="desc">
+                                    <h4>
+                                        {{ item.title }}
+                                    </h4>
+                                    <h6>
+                                        ${% if item.sale %}
+                                            <del>{{ item.price }}</del>
+                                            {{ item.sale_price }}
+                                        {% else %}
+                                            {{ item.price }}
+                                        {% endif %}
+                                    </h6>
+                                    <a class="text-uppercase primary-btn" href="#">Pre Order</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-12 text-center">
+                            <div class="alert alert-info" role="alert">No products found!</div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}

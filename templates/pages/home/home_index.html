@@ -7,9 +7,9 @@
 {% endblock css %}
 
 {% block content %}
-    {% include 'pages/home/carousel.html' %}
+    {% include 'pages/home/carousel.html' with featured=featured %}
     {% include 'pages/home/our-features.html' %}
-    {% include 'pages/home/latest-products.html' %}
+    {% include 'pages/home/latest-products.html' with latest=latest %}
 {% endblock content %}
 
 {% block js %}
